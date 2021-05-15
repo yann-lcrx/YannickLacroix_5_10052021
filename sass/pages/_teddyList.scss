@@ -1,0 +1,16 @@
+.teddyList {
+    img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    &__item {
+        max-width: 320px;
+        border: 1px lightgray solid;
+        padding: 8px;
+        border-radius: 12px;
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

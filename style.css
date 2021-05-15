@@ -10725,5 +10725,26 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+header {
+  height: 100px;
+  max-width: 100%;
+  background-color: #6610f2;
+  margin-bottom: 64px;
+}
+
+.teddyList img {
+  max-width: 250px;
+  max-height: 250px;
+}
+.teddyList__item {
+  max-width: 320px;
+  border: 1px lightgray solid;
+  padding: 8px;
+  border-radius: 12px;
+}
+.teddyList__item div {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=style.css.map */
