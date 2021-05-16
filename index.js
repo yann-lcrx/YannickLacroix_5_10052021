@@ -3,11 +3,13 @@ fetch('http://localhost:3000/api/teddies/')
     .then(jsonTeddyList => {
         for (let jsonTeddy of jsonTeddyList) {
             let teddy = new Teddy(jsonTeddy);
-            document.querySelector('.container').innerHTML += `<div class="teddyList__item .shadow-sm">
-                                                                    <img src=${teddy.imageUrl}>
+            document.querySelector('.teddyList').innerHTML += `<div class="teddyList__item card shadow">
                                                                     <div>
-                                                                        <h3>${teddy.name}</h3>
-                                                                        <p>${teddy.price}</p>
+                                                                        <img src=${teddy.imageUrl}>
+                                                                        <div class="card-body">
+                                                                            <h3>${teddy.name}</h3>
+                                                                            <p>${teddy.getFormatedPrice()}</p>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 `

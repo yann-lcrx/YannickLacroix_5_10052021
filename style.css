@@ -10732,19 +10732,20 @@ header {
   margin-bottom: 64px;
 }
 
+.teddyList {
+  display: flex;
+  flex-flow: wrap row;
+}
 .teddyList img {
-  max-width: 250px;
-  max-height: 250px;
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
 }
 .teddyList__item {
   max-width: 320px;
   border: 1px lightgray solid;
-  padding: 8px;
   border-radius: 12px;
-}
-.teddyList__item div {
-  display: flex;
-  justify-content: space-between;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
