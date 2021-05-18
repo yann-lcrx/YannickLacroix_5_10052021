@@ -10769,4 +10769,16 @@ body {
   object-fit: cover;
 }
 
+.teddyCart div {
+  overflow: hidden;
+}
+.teddyCart img {
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
+}
+.teddyCart h1 + p, .teddyCart .h1 + p {
+  text-align: right;
+}
+
 /*# sourceMappingURL=style.css.map */

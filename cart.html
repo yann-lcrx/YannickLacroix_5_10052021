@@ -8,5 +8,52 @@
         <title>Panier - Orinoco</title>
     </head>
 
+
 <body>
+    <header class="mb-5">
+        <nav class="navbar bg-light navbar-expand d-flex justify-content-between">
+            <a href="index.html" class="navbar-brand"><img src="images/logo-sm.png" alt="Orinoco"></a>
+            <a href="cart.html"><i class="fa fa-shopping-cart text-secondary text-decoration-none" aria-hidden="true"> Panier  <span class="itemCount">(0)</span></i></a>
+        </nav>
+    </header>
+    <section class="teddyCart mb-5">
+        <h1 class="mb-4">Votre panier</h1>
+        <p>Prix</p>
+        <div class="teddyCart__itemList d-flex flex-column">
+            <div class="teddyCart__item card d-flex flex-row">
+                <img src="images/teddy_1.jpg" alt="ours en peluche">
+                <div class='d-flex card-body flex-row justify-content-between'>
+                    <p class='h3'>Norbert</p>
+                    <p class="text-secondary"><strong>25 €</strong></p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Vos informations personnelles</h2>
+        <form>
+            <div class="formgroup">
+                <label for="firstName">Prénom</label>
+                <input id="firstName" class="form-control" required>
+            </div>
+            <div class="formgroup">
+                <label for="lastName">Nom</label>
+                <input id="lastName" class="form-control" required>
+            </div>
+            <div class="formgroup">
+                <label for="address">Adresse</label>
+                <input id="address" class="form-control" required>
+            </div>
+            <div class="formgroup">
+                <label for="city">Ville</label>
+                <input id="city" class="form-control" required>
+            </div>
+            <div class="formgroup">
+                <label for="email">Adresse e-mail</label>
+                <input id="email" type="email" class="form-control" required>
+            </div>
+        </form>
+    </section>
+    <footer class="navbar bg-light d-flex justify-content-center">
+        <p> © Orinoco, 2021. Tous droits réservés</p>
+    </footer>
 </body>

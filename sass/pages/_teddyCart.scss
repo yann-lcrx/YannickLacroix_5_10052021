@@ -1,0 +1,13 @@
+.teddyCart {
+    div {
+        overflow: hidden
+    }
+    img {
+        object-fit: cover;
+        height: 150px;
+        width: 150px;
+    }
+    h1 + p {
+        text-align: right
+    }
+}
