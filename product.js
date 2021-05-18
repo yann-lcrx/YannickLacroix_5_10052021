@@ -3,7 +3,24 @@ let productId = (productUrl.searchParams.toString()).slice(3)
 
 fetch('http://localhost:3000/api/teddies/' + productId)
 .then(data => data.json())
-.then(teddy => {
+.then(jsonTeddy => {
+        let teddy = new Teddy(jsonTeddy);
         console.log(teddy)
+        document.querySelector('.teddyPage').innerHTML += `<img src="${teddy.imageUrl}" alt="ours en peluche">
+                                                            <div class="card-body">
+                                                                <h1 class="h2">${teddy.name}</h1>
+                                                                <p class="h5">Prix: <span class="text-secondary">${teddy.getFormatedPrice()}</span></p>
+                                                                <p>Nos prix incluent la TVA</p>
+                                                                <strong>Description de l'article</strong>
+                                                                <p>${teddy.description}</p>
+                                                                <select name="colorSelect" class="teddyPage__colorSelect">
+                                                                
+                                                                </select>
+                                                                <button class="btn-primary">Ajouter au panier</button>
+                                                            </div>`
+    for (color of teddy.colors) {
+            console.log(color)
+            document.querySelector('.teddyPage__colorSelect').innerHTML += '<option>' + color + '</option>'
+        }
     }
 )
