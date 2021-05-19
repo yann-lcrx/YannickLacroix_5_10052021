@@ -22,10 +22,10 @@ fetch('http://localhost:3000/api/teddies/' + productId)
         }
         document
             .querySelector('.btn--addToCart')
-            .addEventListener('click', function() {
-                localStorage.setItem("id", productId)
-                location.reload
-    });
+            .addEventListener('click', function(evt) {
+                evt.stopPropagation
+                addToCart(productId)
+            });
     }
 )
 
