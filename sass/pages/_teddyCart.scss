@@ -10,4 +10,10 @@
     h1 + p {
         text-align: right
     }
+    &__itemPrice {
+        font-weight: bold;
+    }
+    &__sum {
+        font-weight: bold;
+    }
 }

@@ -1,8 +1,8 @@
 let cartList = getCart();
-console.log(cartList)
+let itemSum = 0
 
-for (let i of cartList) {
-    fetch('http://localhost:3000/api/teddies/' + i)
+for (let item of cartList) {
+    fetch('http://localhost:3000/api/teddies/' + item)
     .then(data => data.json())
     .then(jsonTeddy => {
         let teddy = new Teddy(jsonTeddy);
@@ -12,8 +12,23 @@ for (let i of cartList) {
                                                                     <div>
                                                                         <p class='h3'>${teddy.name}</p>
                                                                     </div>
-                                                                    <p class="text-secondary h5"><strong>${teddy.getFormatedPrice()}</strong></p>
+                                                                    <p class="teddyCart__itemPrice text-secondary h5">${teddy.getFormatedPrice()}</p>
                                                                 </div>
                                                             </div>`
+        itemSum += teddy.price
+        document.querySelector('.teddyCart__sum').innerHTML = (itemSum / 100).toFixed(2) + ' €'
     })
 }
+
+document.querySelector('.btn--order').addEventListener('click', function(evt) {
+    var valid = true;
+    for (let input of document.querySelectorAll('.form input')) {
+        valid &= input.reportValidity()
+        if (!valid) {
+            evt.preventDefault
+        }        
+    }
+    if (valid) {
+        alert('Votre commande a bien été envoyée')
+    }
+})

@@ -4,7 +4,7 @@ class Teddy{
     }
     
     getFormatedPrice(teddy) {
-        return this.price / 100 + ' €'
+        return (this.price / 100).toFixed(2) + ' €'
     }
 }
 

@@ -1,3 +1,5 @@
+document.querySelector('.itemCount').innerText = getCart().length
+
 function addToCart(teddyId) {
     let cartList = getCart();
     cartList.push(teddyId);

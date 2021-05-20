@@ -10780,5 +10780,11 @@ body {
 .teddyCart h1 + p, .teddyCart .h1 + p {
   text-align: right;
 }
+.teddyCart__itemPrice {
+  font-weight: bold;
+}
+.teddyCart__sum {
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=style.css.map */
