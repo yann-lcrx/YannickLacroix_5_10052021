@@ -1,4 +1,5 @@
 let products = getCart();
+itemSum = 0
 
 for (let item of products) {
     fetch('http://localhost:3000/api/teddies/' + item)
@@ -48,6 +49,7 @@ document.querySelector('.btn--order').addEventListener('click', function() {
             localStorage.setItem('orderID', value.orderId)
             localStorage.setItem('itemSum', itemSum)
             localStorage.setItem('name', value.contact.firstName)
+            localStorage.setItem('email', value.contact.email)
             location.assign('confirmation.html')
         })
         .catch(function(err) {
