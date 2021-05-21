@@ -1,5 +1,11 @@
 document.querySelector('.itemCount').innerText = getCart().length
 
+let itemSum = 0
+
+localStorage.removeItem('name')
+localStorage.removeItem('orderID')
+localStorage.removeItem('itemSum')
+
 function addToCart(teddyId) {
     let cartList = getCart();
     cartList.push(teddyId);

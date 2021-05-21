@@ -1,7 +1,6 @@
-let cartList = getCart();
-let itemSum = 0
+let products = getCart();
 
-for (let item of cartList) {
+for (let item of products) {
     fetch('http://localhost:3000/api/teddies/' + item)
     .then(data => data.json())
     .then(jsonTeddy => {
@@ -20,15 +19,39 @@ for (let item of cartList) {
     })
 }
 
-document.querySelector('.btn--order').addEventListener('click', function(evt) {
+document.querySelector('.btn--order').addEventListener('click', function() {
     var valid = true;
     for (let input of document.querySelectorAll('.form input')) {
         valid &= input.reportValidity()
         if (!valid) {
-            evt.preventDefault
+            break
         }        
     }
     if (valid) {
-        alert('Votre commande a bien été envoyée')
+        let contact = new ContactInfo(document.getElementById('firstName').value, document.getElementById('lastName').value, document.getElementById('address').value, document.getElementById('city').value, document.getElementById('email').value)
+        let toSend = {contact, products}
+        //console.log(JSON.stringify(toSend))
+        fetch('http://localhost:3000/api/teddies/order', {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(toSend)
+        })
+        .then(function(res) {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+        .then(function(value) {
+            localStorage.setItem('orderID', value.orderId)
+            localStorage.setItem('itemSum', itemSum)
+            localStorage.setItem('name', value.contact.firstName)
+            location.assign('confirmation.html')
+        })
+        .catch(function(err) {
+            console.error(err)
+        })
     }
 })
