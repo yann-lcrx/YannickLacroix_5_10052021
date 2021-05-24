@@ -1,24 +1,38 @@
 let products = getCart();
 itemSum = 0
 
-for (let item of products) {
-    fetch('http://localhost:3000/api/teddies/' + item)
-    .then(data => data.json())
-    .then(jsonTeddy => {
-        let teddy = new Teddy(jsonTeddy);
-        document.querySelector('.teddyCart').innerHTML += `<div class="teddyCart__item card d-flex flex-row mb-2">
-                                                                <img src="${teddy.imageUrl}" alt="ours en peluche">
-                                                                <div class='d-flex card-body flex-row justify-content-between'>
-                                                                    <div>
-                                                                        <p class='h3'>${teddy.name}</p>
+if (products.length > 0) {
+    for (let item of products) {
+        fetch('http://localhost:3000/api/teddies/' + item)
+        .then(data => data.json())
+        .then(jsonTeddy => {
+            let teddy = new Teddy(jsonTeddy);
+            document.querySelector('.teddyCart').innerHTML += `<div class="teddyCart__item card d-flex flex-row mb-2">
+                                                                    <img src="${teddy.imageUrl}" alt="ours en peluche">
+                                                                    <div class='d-flex card-body flex-row justify-content-between'>
+                                                                        <div>
+                                                                            <p class='h3'>${teddy.name}</p>
+                                                                        </div>
+                                                                        <p class="teddyCart__itemPrice text-secondary h5">${teddy.getFormatedPrice()}</p>
                                                                     </div>
-                                                                    <p class="teddyCart__itemPrice text-secondary h5">${teddy.getFormatedPrice()}</p>
-                                                                </div>
-                                                            </div>`
-        itemSum += teddy.price
-        document.querySelector('.teddyCart__sum').innerHTML = (itemSum / 100).toFixed(2) + ' €'
-    })
+                                                                </div>`
+            itemSum += teddy.price
+            document.querySelector('.teddyCart__sum').innerHTML = (itemSum / 100).toFixed(2) + ' €'
+        })
+    }
+} else {
+    for (let input of document.querySelectorAll('.form input')) {
+        input.disabled = true
+        document
+            .querySelector('.btn--order')
+            .classList
+            .replace('btn-primary', 'btn-outline-primary')
+        document
+            .querySelector('.btn--order')
+            .setAttribute('value','Votre panier est vide !')
+    }
 }
+
 
 document.querySelector('.btn--order').addEventListener('click', function() {
     var valid = true;
