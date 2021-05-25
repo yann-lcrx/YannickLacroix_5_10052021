@@ -1,6 +1,6 @@
-let teddyUrl = new URL('file:///C:/Users/vg-ad/OneDrive/Documents/WEB/Projet%205%20-%20orinoco/JWDP5/product.html')
-
-fetch('http://localhost:3000/api/teddies/')
+function getAllTeddies() {
+    let teddyUrl = new URL('file:///C:/Users/vg-ad/OneDrive/Documents/WEB/Projet%205%20-%20orinoco/JWDP5/product.html')
+    fetch('http://localhost:3000/api/teddies/')
     .then(data => data.json())
     .then(jsonTeddyList => {
         for (let jsonTeddy of jsonTeddyList) {
@@ -16,3 +16,8 @@ fetch('http://localhost:3000/api/teddies/')
                                                                 `
         }
     })
+}
+
+getAllTeddies().catch(function(err) {
+    console.error(err)
+})
