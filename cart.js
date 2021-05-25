@@ -39,7 +39,12 @@ document.querySelector('.btn--order').addEventListener('click', function() {
     for (let input of document.querySelectorAll('.form input')) {
         valid &= input.reportValidity()
         if (!valid) {
+            input.classList.remove('is-valid')
+            input.classList.add('is-invalid')
             break
+        } else {
+            input.classList.remove('is-invalid')
+            input.classList.add('is-valid')
         }        
     }
     if (valid) {
