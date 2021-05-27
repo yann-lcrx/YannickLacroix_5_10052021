@@ -26,10 +26,10 @@ function getOrderInfo() {
 getOrderInfo()
 
 document
-    .querySelector('.btn--backToIndex')
+    .querySelector('.btn--backToHome')
     .addEventListener('click', function() {
         clearOrderInfo()
-        location.assign('index.html')
+        location.assign('home.html')
     })
 
 for (let link of document.getElementsByTagName('nav')) {

@@ -35,20 +35,29 @@ function generateCart() {
     }
 }
 
-function confirmOrder() {
+function validateUserInput() {
     var valid = true;
     for (let input of document.querySelectorAll('.form input')) {
         valid &= input.reportValidity()
         if (!valid) {
+            //le champ devient rouge
             input.classList.remove('is-valid')
             input.classList.add('is-invalid')
             break
         } else {
+            //le champ devient vert
             input.classList.remove('is-invalid')
             input.classList.add('is-valid')
         }        
     }
     if (valid) {
+        return true
+    }
+}
+
+function confirmOrder() {
+    validateUserInput()
+    if (validateUserInput()) {
         let contact = new ContactInfo(document.getElementById('firstName').value, document.getElementById('lastName').value, document.getElementById('address').value, document.getElementById('city').value, document.getElementById('email').value)
         let toSend = {contact, products}
         fetch('http://localhost:3000/api/teddies/order', {
