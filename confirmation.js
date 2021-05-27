@@ -31,3 +31,7 @@ document
         clearOrderInfo()
         location.assign('index.html')
     })
+
+for (let link of document.getElementsByTagName('nav')) {
+    link.addEventListener('click', clearOrderInfo)
+}
