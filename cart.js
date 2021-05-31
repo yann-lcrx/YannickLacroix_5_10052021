@@ -87,11 +87,13 @@ function confirmOrder() {
     }
 }
 
-
-if (products.length > 0) {
-    generateCart()
-} else {
-    disableCartForm()
+function checkCartLength(){
+    if (products.length > 0) {
+        generateCart()
+        document.querySelector('.btn--order').addEventListener('click', confirmOrder)
+    } else {
+        disableCartForm()
+    }
 }
 
-document.querySelector('.btn--order').addEventListener('click', confirmOrder)
+checkCartLength()
