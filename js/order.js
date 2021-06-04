@@ -1,4 +1,4 @@
-class ContactInfo {
+export class ContactInfo {
     constructor(firstName, lastName, address, city, email){
         this.firstName = firstName
         this.lastName = lastName
