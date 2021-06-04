@@ -1,8 +1,8 @@
-//import Teddy from '.js/teddy.js'
-//import TeddyManager from 'js/teddy.js'
-//import countItems from './js/cartmanager'
+import { Teddy } from './js/teddy.js'
+import { TeddyManager } from './js/teddy.js'
+import { countItems } from './js/cartmanager.js'
 
-function getAllTeddies() {
+function displayTeddies() {
     let teddyUrl = new URL('file:///C:/Users/vg-ad/OneDrive/Documents/WEB/Projet%205%20-%20orinoco/JWDP5/product.html')
     fetch('http://localhost:3000/api/teddies/')
     .then(data => data.json())
@@ -19,4 +19,4 @@ function getAllTeddies() {
 }
 
 countItems()
-getAllTeddies()
+displayTeddies()

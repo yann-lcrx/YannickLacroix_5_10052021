@@ -1,15 +1,15 @@
-function countItems() {
+export function countItems() {
     document.querySelector('.itemCount').innerText = getCart().length
-}
+};
 
-function addToCart(teddyId) {
+export function addToCart(teddyId) {
     let cartList = getCart();
     cartList.push(teddyId);
     saveCart(cartList);
     location.reload();
 }
 
-function getCart() {
+export function getCart() {
     let cartList = localStorage.getItem('cartList');
     if (cartList == null) {
         return [];
@@ -18,6 +18,6 @@ function getCart() {
     }
 }
 
-function saveCart(cartList) {
+export function saveCart(cartList) {
     localStorage.setItem('cartList', JSON.stringify(cartList))
 }
