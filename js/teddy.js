@@ -50,9 +50,3 @@ export class Teddy{
                                                                 </div>`
     }
 }
-
-export class TeddyManager {
-    constructor(teddyList){
-        this.teddyList = teddyList
-    }
-}
