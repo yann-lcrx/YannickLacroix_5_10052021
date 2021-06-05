@@ -19,7 +19,7 @@ function disableCartForm() {
     }
 }
 
-function generateCart() {
+function getCartItems() {
     for (let item of products) {
         fetch('http://localhost:3000/api/teddies/' + item)
         .then(data => data.json())
@@ -86,7 +86,7 @@ function confirmOrder() {
 
 function checkCartLength(){
     if (products.length > 0) {
-        generateCart()
+        getCartItems()
         document.querySelector('.btn--order').addEventListener('click', confirmOrder)
     } else {
         disableCartForm()

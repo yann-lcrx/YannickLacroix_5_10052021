@@ -5,7 +5,7 @@ import { addToCart } from './js/cartmanager.js'
 let productUrl = new URL(window.location.href);
 let productId = (productUrl.searchParams.toString()).slice(3)
 
-function generateTeddyPage() {
+function getTeddyDescription() {
     fetch('http://localhost:3000/api/teddies/' + productId)
         .then(data => data.json())
         .then(jsonTeddy => {
@@ -24,4 +24,4 @@ function generateTeddyPage() {
 }
 
 countItems()
-generateTeddyPage()
+getTeddyDescription()

@@ -37,6 +37,7 @@ export class Teddy{
                     document.querySelector('.teddyPage__colorSelect').innerHTML += '<option>' + color + '</option>'
             }
     }
+    
     createCartItem() {
         document.querySelector('.teddyCart').innerHTML += `<div class="teddyCart__item card d-flex flex-row mb-2">
                                                                     <img src="${this.imageUrl}" alt="ours en peluche">
